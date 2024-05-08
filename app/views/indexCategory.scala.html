@@ -1,0 +1,9 @@
+@(categories: List[Category])
+
+<h1>Categories</h1>
+
+<ul>
+    @for(category <- categories) {
+        <li><a href="@routes.CategoryController.showCategories(category.id)">@category.name</a></li>
+    }
+</ul>

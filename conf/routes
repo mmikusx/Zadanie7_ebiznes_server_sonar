@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /products                      controllers.ProductController.index
+GET     /products/new                  controllers.ProductController.create
+POST    /products                      controllers.ProductController.store
+GET     /products/:id                  controllers.ProductController.show(id: Long)
+GET     /products/:id/edit             controllers.ProductController.edit(id: Long)
+POST    /products/:id                  controllers.ProductController.update(id: Long)
+GET     /products/:id/delete           controllers.ProductController.delete(id: Long)
+POST    /products/:id/delete           controllers.ProductController.destroy(id: Long)
+
+GET     /categories                      controllers.CategoryController.indexCategory
+GET     /categories/new                  controllers.CategoryController.createCategory
+POST    /categories                      controllers.CategoryController.storeCategory
+GET     /categories/:id                  controllers.CategoryController.showCategories(id: Long)
+POST    /categories/:id/addProduct       controllers.CategoryController.addProductToCategory(id: Long)
+
+GET     /cart                           controllers.CartController.showCart()
+POST    /cart/add                       controllers.CartController.addToCart()

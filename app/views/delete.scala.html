@@ -1,0 +1,22 @@
+@(product: Product)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delete Confirmation</title>
+    </head>
+    <body>
+        <h1>Delete Confirmation</h1>
+        <p>Are you sure you want to delete the following product?</p>
+        <ul>
+            <li><strong>ID:</strong> @product.id</li>
+            <li><strong>Name:</strong> @product.name</li>
+            <li><strong>Price:</strong> @product.price</li>
+        </ul>
+        <form action="@routes.ProductController.destroy(product.id)" method="post">
+            <button type="submit">Delete</button>
+            <a href="@routes.ProductController.index">Cancel</a>
+        </form>
+    </body>
+</html>

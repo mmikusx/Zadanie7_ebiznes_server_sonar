@@ -1,0 +1,20 @@
+@(category: Category, availableProducts: Seq[Product])
+
+<h1>@category.name</h1>
+
+<h2>Products:</h2>
+<ul>
+@for(product <- category.products) {
+    <li>@product.name - @product.price</li>
+}
+</ul>
+
+<h2>Add Product:</h2>
+<form action="@routes.CategoryController.addProductToCategory(category.id)" method="post">
+    <select name="product">
+    @for(product <- availableProducts) {
+        <option value="@product.name">@product.name</option>
+    }
+    </select>
+    <button type="submit">Add Product</button>
+</form>
