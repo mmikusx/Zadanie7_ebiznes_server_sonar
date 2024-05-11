@@ -8,6 +8,7 @@ let services = [
     { id: 2, name: 'Usługa 2', price: 20 }
 ];
 
+app.disable('x-powered-by');
 app.use(express.json());
 
 app.get('/services', (req, res) => {
