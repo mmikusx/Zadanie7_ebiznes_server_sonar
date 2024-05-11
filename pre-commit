@@ -47,3 +47,12 @@ fi
 
 # If there are whitespace errors, print the offending file names and fail.
 exec git diff-index --check --cached $against --
+
+# Run ESLint on staged JavaScript files
+for file in $(git diff --cached --name-only --diff-filter=ACM | grep '\.js$'); do
+  git show ":$file" | npx eslint --stdin --stdin-filename "$file"
+  if [ $? -ne 0 ]; then
+    echo "ESLint found issues in $file."
+    exit 1
+  fi
+done

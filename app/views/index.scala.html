@@ -1,8 +1,0 @@
-@(products: Seq[Product])
-
-<h1>Product Listing</h1>
-<ul>
-    @for(product <- products) {
-        <li>@product.id, @product.name - @product.price</li>
-    }
-</ul>
